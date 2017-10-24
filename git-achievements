@@ -424,6 +424,10 @@ echo "
     cat  "${ACTIONLOGFILE}" | grep -v Date | grep -v 'git-dir' | awk '{ print $1 }' | sort | uniq -c | sort -nr >> index.html
     echo "</pre>" >> index.html
 
+    DATE_CREATED=$(ls -lhU $HOME/.git-achievements.log | awk '{print $6 " " $7 " " $8}')
+    DATE_UPDATED=$(ls -lh  $HOME/.git-achievements.log | awk '{print $6 " " $7 " " $8}')
+    echo "<section><p>[ First achivement: $DATE_CREATED | Last achievement: $DATE_UPDATED ]</p></section>" >> index.html
+
     # Locked Achievements
     echo "<script type=\"text/javascript\">
 function showLocked() {
@@ -448,10 +452,6 @@ There are $total Achievements. Some achievements can be leveled up depending on 
     echo '</ul></div>' >> index.html
     rm temp.html
     rm all.html
-
-    DATE_CREATED=$(ls -lhU $HOME/.git-achievements.log | awk '{print $6 " " $7 " " $8}')
-    DATE_UPDATED=$(ls -lh  $HOME/.git-achievements.log | awk '{print $6 " " $7 " " $8}')
-    echo "<footer><p>[ First achivement: $DATE_CREATED | Last achievement: $DATE_UPDATED ]</p></footer>" >> index.html
 
     echo "</body></html>" >> index.html
 
