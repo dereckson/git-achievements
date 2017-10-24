@@ -426,7 +426,7 @@ echo "
 
     DATE_CREATED=$(ls -lhU $HOME/.git-achievements.log | awk '{print $6 " " $7 " " $8}')
     DATE_UPDATED=$(ls -lh  $HOME/.git-achievements.log | awk '{print $6 " " $7 " " $8}')
-    echo "<section><p>[ First achivement: $DATE_CREATED | Last achievement: $DATE_UPDATED ]</p></section>" >> index.html
+    echo "<section><p>[ First achievement: $DATE_CREATED | Last achievement: $DATE_UPDATED ]</p></section>" >> index.html
 
     # Locked Achievements
     echo "<script type=\"text/javascript\">
